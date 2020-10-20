@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coptil_Anamaria_Lab2"
         mc:Ignorable="d"
-        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Loaded="frmMain_Loaded">
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
     </Window.Background>
-    <Grid Margin="0,34,0,-34">
+    <Grid Margin="0,34,0,-34" KeyUp="txtQuantity_KeyPress">
         <Grid.RowDefinitions>
             <RowDefinition Height="110*"/>
             <RowDefinition Height="107*"/>
@@ -52,7 +52,7 @@
             <Canvas/>
         </GroupBox>
         <Label x:Name="lblQuantity" Content="Quantity" HorizontalAlignment="Left" Margin="43,19,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Normal" FontSize="16" Grid.Row="1"/>
-        <TextBox x:Name="txtQuantity" HorizontalAlignment="Left" Margin="117,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="27" FontSize="16" FontFamily="Arial" Grid.Row="1"/>
+        <TextBox x:Name="txtQuantity" HorizontalAlignment="Left" Margin="117,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="27" FontSize="16" FontFamily="Arial" Grid.Row="1" KeyUp="txtQuantity_KeyPress"/>
         <Label x:Name="lblType" Content="Type" HorizontalAlignment="Left" Margin="172,19,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Normal" FontSize="16" Grid.Row="1"/>
         <ComboBox x:Name="cmbType" HorizontalAlignment="Left" Margin="232,20,0,0" VerticalAlignment="Top" Width="132" Height="27" Grid.Row="1"/>
         <Label x:Name="lblPrice" Content="Price" HorizontalAlignment="Left" Margin="382,21,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Normal" FontSize="16" Grid.Row="1"/>
@@ -68,23 +68,28 @@
         <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top"
 Width="131" Margin="0,26,0,0">
             <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
-            </MenuItem>
-            <MenuItem Header="_Doughnuts">
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click">
+                </MenuItem>
+                
+                <MenuItem Header="_Doughnuts" >
+                
+                
+           
                 <MenuItem Header="Make">
                     <MenuItem Header="Raised">
-                        <MenuItem x:Name="glazedMenuItem" Header="Glazed"/>
-                        <MenuItem x:Name="sugarMenuItem" Header="Sugar"/>
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed" IsCheckable="True" Click="glazedToolStripMenuItem_Click"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar" IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
                     </MenuItem>
-                    <MenuItem Header="Filled">
-                        <MenuItem Header="Lemon"/>
-                        <MenuItem Header="Chocolate"/>
-                        <MenuItem Header="Vanilla"/>
-                    </MenuItem>
+                        <MenuItem Header="Filled"></MenuItem>
+                        <MenuItem x:Name="lemonToolStripMenuItem" Header="Lemon" IsCheckable="True" Click="lemonToolStripMenuItem_Click"/>
+                        <MenuItem x:Name="chocolateToolStripMenuItem" Header="Chocolate" IsCheckable="True" Click="chocolateToolStripMenuItem_Click"/>
+                        <MenuItem x:Name="vanillaToolStripMenuItem" Header="Vanilla" IsCheckable="True" Click="vanillaToolStripMenuItem_Click"/>
                 </MenuItem>
-                <MenuItem Header="Stop"/>
-            </MenuItem>
+                    <MenuItem Header="Stop" Click="stopToolStripMenuItem_Click"/>
+                    </MenuItem>
+                    </MenuItem>
         </Menu>
-
+        
     </Grid>
 </Window>
+    
